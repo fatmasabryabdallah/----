@@ -160,7 +160,7 @@ class SiteProxy(BaseHTTPRequestHandler):
                     upstream_origin = urlsplit(UPSTREAM)
                     value = value.replace(
                         f"{upstream_origin.scheme}://{upstream_origin.netloc}",
-                        f"http://{HOST}:{PORT}",
+                        public_origin,
                     )
                 self.send_header(key, value)
             self.send_header("Cache-Control", "no-store")
