@@ -1,3 +1,4 @@
+import os
 import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.error import HTTPError, URLError
@@ -6,8 +7,8 @@ from urllib.parse import urlsplit
 
 
 UPSTREAM = "https://zatoona-platform.vercel.app"
-HOST = "127.0.0.1"
-PORT = 8765
+HOST = os.environ.get("HOST", "127.0.0.1")
+PORT = int(os.environ.get("PORT", "8765"))
 REPLACEMENTS = (
     ("Abdallah Mohamed Ali", "Fatma Sabry Abdallah"),
     ("عبدالله محمد علي", "Fatma Sabry Abdallah"),
