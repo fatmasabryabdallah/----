@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: fatma-enjaz-platform
+    runtime: python
+    plan: free
+    buildCommand: echo "No build step required"
+    startCommand: python serve_site.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
